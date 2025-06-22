@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { createJournal, getJournals, getbyid } = require('../controllers/journalController');
+const { createJournal, getJournals, getbyid, deleteJournal, searchByTag, updateJournal } = require('../controllers/journalController');
 const validateJournal = require('../middleware/validateJournal');
 
 
@@ -12,5 +12,14 @@ router.get('/all', getJournals);
 
 // GET /api/journals/:id - Get journal by id
 router.get('/:id', getbyid);
+
+// DELETE /api/journals/:id - Delete a journal entry
+router.delete('/:id', deleteJournal);
+
+// GET /api/journals/search?tag=tagname - Search journals by tag
+router.get('/search', searchByTag);
+
+// PUT /api/journals/:id - Update a journal entry
+router.put('/:id', validateJournal, updateJournal);
 
 module.exports = router;

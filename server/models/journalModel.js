@@ -7,6 +7,7 @@ const journalSchema = new mongoose.Schema({
   summary: { type: String },
   mood: String,
   createdAt: { type: Date, default: Date.now },
+  tags: [{ type: String }],
 });
 
 module.exports = mongoose.model('Journal', journalSchema);
