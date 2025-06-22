@@ -44,7 +44,6 @@ A personal journal that helps you think, reflect, and grow — powered by OpenAI
 ## 🗂️ Folder Structure
 
 ```
-
 second-brain-journal/
 ├── client/
 │   ├── public/
@@ -80,7 +79,6 @@ second-brain-journal/
 ├── scripts/
 ├── README.md
 ├── .gitignore
-
 ````
 
 ---
