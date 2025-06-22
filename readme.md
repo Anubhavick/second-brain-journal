@@ -1,5 +1,5 @@
 
-
+// this is an edit 
 Absolutely! Here's a solid `README.md` for your **AI-Powered Second Brain Journal** project — tailored specifically for your setup, stack, and goals:
 
 ---
