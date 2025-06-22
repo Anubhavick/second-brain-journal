@@ -1,4 +1,4 @@
- *************************AI-Powered Second Brain Journal*******************
+ ***AI-Powered Second Brain Journal***
 
 ---
 
