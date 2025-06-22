@@ -55,7 +55,7 @@ A personal journal that helps you think, reflect, and grow — powered by OpenAI
 ```bash
 git clone https://github.com/your-username/second-brain-journal.git
 cd second-brain-journal
-````
+```
 
 ---
 
