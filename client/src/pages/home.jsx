@@ -14,6 +14,7 @@ const Home = () => {
   const [editEntry, setEditEntry] = useState(null);
   const [menuOpenId, setMenuOpenId] = useState(null);
 
+  // Fetch all journals
   const fetchJournals = async () => {
     try {
       const data = await journalService.getAllJournals();
@@ -29,12 +30,13 @@ const Home = () => {
     fetchJournals();
   }, []);
 
+  // Delete a journal entry
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this journal entry?')) return;
     setDeletingId(id);
     try {
       await journalService.deleteJournal(id);
-      setJournals(journals.filter(j => j._id !== id));
+      setJournals(journals.filter((j) => j._id !== id));
     } catch (err) {
       alert('Failed to delete journal entry');
     } finally {
@@ -43,10 +45,11 @@ const Home = () => {
     }
   };
 
+  // Save edits to a journal entry
   const handleEditSave = async (updated) => {
     try {
       const res = await journalService.updateJournal(editEntry._id, updated);
-      setJournals(journals.map(j => j._id === editEntry._id ? res : j));
+      setJournals(journals.map((j) => (j._id === editEntry._id ? res : j)));
       setEditEntry(null);
     } catch (err) {
       alert('Failed to update journal entry');
@@ -66,8 +69,16 @@ const Home = () => {
         {journals.map((entry) => (
           <li
             key={entry._id}
-            style={{ marginBottom: '2rem', border: '1px solid #ccc', borderRadius: '8px', padding: '1rem', position: 'relative', cursor: 'pointer', background: '#fff' }}
-            onClick={e => {
+            style={{
+              marginBottom: '2rem',
+              border: '1px solid #ccc',
+              borderRadius: '8px',
+              padding: '1rem',
+              position: 'relative',
+              cursor: 'pointer',
+              background: '#fff',
+            }}
+            onClick={(e) => {
               if (e.target.closest('.journal-menu-btn')) return;
               setModalEntry(entry);
             }}
@@ -83,8 +94,15 @@ const Home = () => {
               </div>
               <button
                 className="journal-menu-btn"
-                style={{ background: 'none', border: 'none', fontSize: '1.5rem', cursor: 'pointer', padding: '0 0.5rem', color: '#888' }}
-                onClick={e => {
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  fontSize: '1.5rem',
+                  cursor: 'pointer',
+                  padding: '0 0.5rem',
+                  color: '#888',
+                }}
+                onClick={(e) => {
                   e.stopPropagation();
                   setMenuOpenId(menuOpenId === entry._id ? null : entry._id);
                 }}
@@ -94,7 +112,10 @@ const Home = () => {
               </button>
               {menuOpenId === entry._id && (
                 <JournalMenu
-                  onEdit={() => { setEditEntry(entry); setMenuOpenId(null); }}
+                  onEdit={() => {
+                    setEditEntry(entry);
+                    setMenuOpenId(null);
+                  }}
                   onDelete={() => handleDelete(entry._id)}
                   loading={deletingId === entry._id}
                   onClose={() => setMenuOpenId(null)}

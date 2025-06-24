@@ -11,7 +11,7 @@ const NewEntry = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const tagsArray = tags.split(',').map(t => t.trim()).filter(Boolean);
+      const tagsArray = tags.split(',').map((t) => t.trim()).filter(Boolean);
       await journalService.createJournal({ title, content, tags: tagsArray });
       navigate('/');
     } catch (error) {
@@ -28,7 +28,14 @@ const NewEntry = () => {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder="Title"
-          style={{ width: '100%', marginBottom: '1rem', fontSize: '1.1rem', padding: '0.5rem', borderRadius: '5px', border: '1px solid #ccc' }}
+          style={{
+            width: '100%',
+            marginBottom: '1rem',
+            fontSize: '1.1rem',
+            padding: '0.5rem',
+            borderRadius: '5px',
+            border: '1px solid #ccc',
+          }}
           required
         />
         <textarea
@@ -38,14 +45,21 @@ const NewEntry = () => {
           cols={50}
           placeholder="Write your thoughts here..."
           required
+          style={{ width: '100%', marginBottom: '1rem' }}
         />
-        <br />
         <input
           type="text"
           value={tags}
           onChange={(e) => setTags(e.target.value)}
           placeholder="Tags (comma separated, e.g. work, personal, idea)"
-          style={{ width: '100%', margin: '1rem 0', fontSize: '1rem', padding: '0.5rem', borderRadius: '5px', border: '1px solid #ccc' }}
+          style={{
+            width: '100%',
+            margin: '1rem 0',
+            fontSize: '1rem',
+            padding: '0.5rem',
+            borderRadius: '5px',
+            border: '1px solid #ccc',
+          }}
         />
         <button type="submit">Save Entry</button>
       </form>
