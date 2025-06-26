@@ -21,8 +21,10 @@ app.use(logger);
 // ROUTES
 const journalRoutes = require('./routes/journalRoutes');
 const summarizeRoutes = require('./routes/summarizeRoutes');
+const speechToTextRoutes = require('./routes/speechToTextRoutes');
 app.use('/api/journals', journalRoutes);
 app.use('/api/summarize', summarizeRoutes);
+app.use('/api/speech-to-text', speechToTextRoutes);
 
 app.get('/', (req, res) => {
   res.send('API is running');
