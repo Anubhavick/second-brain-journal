@@ -94,6 +94,3 @@ logs
 # Database
 *.sqlite
 *.db
-
-# Vercel
-.vercel
