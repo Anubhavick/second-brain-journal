@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:7001/api/journals';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:7001';
+const API_URL = `${API_BASE_URL}/api/journals`;
 
 const createJournal = async (data) => {
   // Create a new journal entry

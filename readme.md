@@ -2,6 +2,11 @@
 
 A modern, full-stack journaling application that helps you write, reflect, and grow. Powered by OpenAI and voice input, Second Brain Journal lets you **capture thoughts**, **summarize entries with AI**, and **track your mood and progress** over time. Built with the MERN stack, Vite, and beautiful UI components, this project is designed for productivity, insight, and personal growth.
 
+## 🚀 Live Demo
+
+- **Frontend (Vercel):** [https://your-app-name.vercel.app](https://your-app-name.vercel.app)
+- **Backend API:** [https://your-backend-api.vercel.app](https://your-backend-api.vercel.app)
+
 ---
 
 <p align="center">
@@ -11,190 +16,285 @@ A modern, full-stack journaling application that helps you write, reflect, and g
   <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" />
   <img src="https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white" />
   <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" />
-  <img src="https://img.shields.io/badge/Google_Cloud_Speech-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white" />
+  <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" />
 </p>
 
 ---
 
 ## ✨ Features
 
-- 📝 **Write Journal Entries** with optional voice input
-- 🔊 **Voice-to-Text** using browser speech recognition (real-time, no backend needed)
-- 🎙️ **Voice-to-Text (Google Cloud)** — record audio and transcribe using Google Speech-to-Text API for higher accuracy (backend-powered)
-- 🧠 **Summarize Notes with OpenAI**
-- 📊 **Track Moods and Trends** using interactive charts
-- 🗂️ **Search & Filter Journal Entries** by tag, date, mood
-- 📱 PWA-Ready (Future scope: Android-friendly interface)
-- 🔐 Local-first or auth-ready setup
+- 📝 **Rich Text Editor** with TinyMCE for beautiful journal entries
+- 🔊 **Voice-to-Text** using browser speech recognition (real-time)
+- 🎙️ **Advanced Voice Processing** with Google Cloud Speech-to-Text API
+- 🧠 **AI-Powered Summarization** using OpenAI GPT
+- 📊 **Mood Tracking & Analytics** with interactive charts
+- � **Smart Search & Filtering** by tags, date, mood, and content
+- 📱 **Responsive Design** optimized for desktop and mobile
+- ⚡ **Fast Performance** with Vite bundler and optimized React
+- 🌐 **Production Ready** with Vercel deployment configuration
 
 ---
 
 ## 🏗️ Architecture
 
 ```
-[Client (React + Vite)] <-> [Express API] <-> [MongoDB]
-                             |
-                        [OpenAI API]
-                        [Google Cloud Speech-to-Text]
+[React Frontend (Vite)] <-> [Express.js API] <-> [MongoDB Atlas]
+         |                        |
+    [TinyMCE Editor]         [OpenAI API]
+    [Speech Recognition]     [Google Cloud Speech]
 ```
-
-<!-- Optionally, add a real diagram or screenshot here -->
 
 ---
 
 ## 🛠️ Tech Stack
 
 ### Frontend
-- React, Vite, Tailwind CSS
-- React Router DOM, Chart.js, react-chartjs-2
-- React Hot Toast, React Speech Recognition
-- Axios
+- **React 19** with Vite for lightning-fast development
+- **Tailwind CSS 4** for modern, responsive styling
+- **React Router DOM 7** for seamless navigation
+- **Chart.js** with React wrapper for data visualization
+- **TinyMCE** for rich text editing
+- **Axios** for API communication
+- **React Hot Toast** for elegant notifications
 
 ### Backend
-- Node.js, Express
-- MongoDB, Mongoose
-- OpenAI API
-- Google Cloud Speech-to-Text API
-- dotenv, CORS, multer
+- **Node.js** with **Express.js** framework
+- **MongoDB** with **Mongoose** ODM
+- **OpenAI API** for intelligent text summarization
+- **Google Cloud Speech-to-Text** for accurate voice transcription
+- **Multer** for file upload handling
+- **CORS** for cross-origin requests
+
+### DevOps & Deployment
+- **Vercel** for both frontend and serverless backend deployment
+- **Environment-based configuration** for development/production
+- **Git-based deployment** with automatic builds
 
 ---
 
-## 🚀 Demo
+## 🚀 Quick Start
 
-<!-- Add screenshots or a GIF here -->
-
----
-
-## ⚙️ Setup Instructions
-
-### Prerequisites
-- Node.js and npm installed
-- MongoDB URI (local or Atlas)
-- OpenAI API Key ([Get one here](https://platform.openai.com/))
-- (Optional, for backend voice-to-text) Google Cloud account and Speech-to-Text API enabled
-
-### 1. Clone the Repo
+### Local Development
 
 ```bash
-git clone https://github.com/your-username/second-brain-journal.git
+# Clone the repository
+git clone https://github.com/Anubhavick/second-brain-journal.git
 cd second-brain-journal
-```
 
-### 2. Setup Backend (Server)
-
-```bash
+# Setup Backend
 cd server
 npm install
-# Add .env file
-touch .env
-```
-
-**.env contents:**
-```
-MONGO_URI=your_mongodb_uri
-OPENAI_API_KEY=your_openai_api_key
-PORT=5000
-GOOGLE_APPLICATION_CREDENTIALS=/absolute/path/to/your/service-account-file.json
-```
-
-#### Google Cloud Speech-to-Text Setup
-1. Go to [Google Cloud Console](https://console.cloud.google.com/).
-2. Create a project and enable the Speech-to-Text API.
-3. Create a Service Account and download the JSON key file.
-4. Place the JSON file somewhere safe (e.g., in your `server` directory, but **never commit it to git**).
-5. Set the `GOOGLE_APPLICATION_CREDENTIALS` variable in your `.env` to the absolute path of your JSON file.
-6. Install dependencies:
-   ```bash
-   npm install @google-cloud/speech multer
-   ```
-
-```bash
+cp .env.example .env
+# Add your MongoDB URI, OpenAI API key, etc. to .env
 npm run dev
-```
 
-### 3. Setup Frontend (Client)
-
-```bash
+# Setup Frontend (in a new terminal)
 cd client
 npm install
 npm run dev
 ```
 
-Open your browser at: [http://localhost:5173](http://localhost:5173)
+Open [http://localhost:5173](http://localhost:5173) to view the app.
+
+### Production Deployment
+
+This project is configured for easy deployment on Vercel:
+
+1. **Deploy Frontend**: 
+   - Push to GitHub and connect to Vercel
+   - Set environment variables in Vercel dashboard
+   - Deploy automatically with every push
+
+2. **Deploy Backend**: 
+   - Deploy server separately or use Vercel Functions
+   - Update `VITE_API_URL` in frontend environment variables
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed instructions.
 
 ---
 
-## 📦 Installed Dependencies
+## 📁 Project Structure
 
-### Frontend
-```json
-"dependencies": {
-  "react": "^19.x",
-  "react-dom": "^19.x",
-  "vite": "^5.x",
-  "axios": "^1.10.0",
-  "react-router-dom": "^7.6.2",
-  "tailwindcss": "^4.1.10",
-  "chart.js": "^4.5.0",
-  "react-chartjs-2": "^5.3.0",
-  "react-hot-toast": "^2.5.2",
-  "classnames": "^2.5.1",
-  "react-speech-recognition": "^4.0.1"
-}
+```
+second-brain-journal/
+├── client/          # React frontend (Vite + Tailwind)
+├── server/          # Express.js backend API
+├── docs/            # Documentation
+└── scripts/         # Build utilities
 ```
 
-### Backend
-```json
-"dependencies": {
-  "express": "^4.18.2",
-  "mongoose": "^7.6.0",
-  "cors": "^2.8.5",
-  "dotenv": "^16.3.1",
-  "openai": "^4.38.0",
-  "@google-cloud/speech": "^6.4.0",
-  "multer": "^1.4.5"
-}
+For detailed structure information, see [PROJECT_STRUCTURE.md](./PROJECT_STRUCTURE.md).
+
+---
+
+## 🎯 For Recruiters
+
+This project demonstrates:
+
+- **Full-Stack Development**: MERN stack with modern tools
+- **API Integration**: OpenAI and Google Cloud services
+- **Responsive Design**: Mobile-first approach with Tailwind CSS
+- **Production Ready**: Proper deployment configuration
+- **Clean Code**: Well-structured, documented codebase
+- **Modern Practices**: React hooks, async/await, ES6+
+
+### Key Technical Skills Showcased
+
+#### Frontend
+- React 19 with functional components and hooks
+- Modern build tools (Vite) for fast development
+- Tailwind CSS for responsive, utility-first styling
+- React Router for SPA navigation
+- Axios for API communication
+- Chart.js for data visualization
+
+#### Backend
+- Node.js and Express.js for REST API
+- MongoDB with Mongoose for data persistence
+- External API integration (OpenAI, Google Cloud)
+- File upload handling with Multer
+- Proper error handling and middleware
+
+#### DevOps & Deployment
+- Environment-based configuration
+- Vercel deployment setup
+- Git workflow and version control
+- Documentation and code organization
+
+---
+
+## � Demo & Screenshots
+
+<!-- Add screenshots or GIF demos here -->
+
+---
+
+## ⚙️ Environment Variables
+
+### Frontend (.env)
+```env
+VITE_API_URL=http://localhost:7001
+VITE_TINYMCE_API_KEY=your_tinymce_api_key
+```
+
+### Backend (.env)
+```env
+MONGO_URI=your_mongodb_connection_string
+OPENAI_API_KEY=your_openai_api_key
+PORT=7001
+GOOGLE_APPLICATION_CREDENTIALS=./path/to/service-account.json
 ```
 
 ---
 
-## 📚 API Endpoints (Sample)
+## � API Documentation
 
-- `POST /api/journals` — Create a new journal entry
-- `GET /api/journals` — List all entries
-- `GET /api/journals/:id` — Get entry by ID
-- `POST /api/summarize` — Summarize text with OpenAI
-- `POST /api/speech-to-text` — Transcribe uploaded audio file using Google Speech-to-Text
+### Journal Endpoints
+- `GET /api/journals/all` - Fetch all journal entries
+- `POST /api/journals/create` - Create a new entry
+- `PUT /api/journals/:id` - Update an entry
+- `DELETE /api/journals/:id` - Delete an entry
+- `GET /api/journals/search?tag=` - Search by tag
+
+### AI & Speech Endpoints
+- `POST /api/summarize/summarize` - Summarize text with AI
+- `POST /api/speech-to-text/` - Convert audio to text
 
 ---
 
-## 🗣️ Voice-to-Text Usage
+## �️ Development Commands
 
-- **Real-time (Browser):** Click the mic button while writing a journal entry to use your browser's built-in speech recognition (works best in Chrome/Edge).
-- **Backend (Google Cloud):** If you want higher accuracy or your browser doesn't support real-time speech recognition, the app can record your voice and send it to the backend, which uses Google Cloud Speech-to-Text. Make sure you have set up your Google Cloud credentials as described above.
+### Frontend Commands
+```bash
+npm run dev        # Start development server
+npm run build      # Build for production
+npm run preview    # Preview production build
+npm run lint       # Run ESLint
+```
+
+### Backend Commands
+```bash
+npm run dev        # Start with nodemon
+npm start          # Start production server
+npm test           # Run tests
+```
 
 ---
 
 ## 🤝 Contributing
 
-Contributions, issues, and feature requests are welcome! Feel free to fork the repo and submit a pull request.
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ---
 
-## 📬 Contact
+## 📱 Future Enhancements
 
-Made with ❤️ by [Anubhav Mishra]
-
-- [LinkedIn](https://www.linkedin.com/in/anubhavick/)
-- [GitHub](https://github.com/anubhavick)
-
----
-
-## 📃 License
-
-MIT License
+- [ ] User authentication and authorization
+- [ ] PWA support for mobile app experience
+- [ ] Real-time collaboration features
+- [ ] Advanced analytics and insights
+- [ ] Export functionality (PDF, Markdown)
+- [ ] Dark/light theme toggle
+- [ ] Multi-language support
+- [ ] Offline functionality with service workers
 
 ---
 
-> This journal isn't just a diary — it's a second brain. Capture your thoughts, summarize them intelligently, and track how you grow over time.
+## 🐛 Troubleshooting
+
+### Common Issues
+
+**Build fails on Vercel:**
+- Check that all environment variables are set
+- Ensure Node.js version compatibility
+- Verify all dependencies are in package.json
+
+**API calls failing:**
+- Check CORS configuration
+- Verify API URLs in environment variables
+- Ensure backend is deployed and accessible
+
+**Database connection issues:**
+- Verify MongoDB Atlas connection string
+- Check network access and IP whitelist
+- Ensure database user has proper permissions
+
+For more help, see [DEPLOYMENT.md](./DEPLOYMENT.md) or create an issue.
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## �‍💻 Author
+
+**Anubhav Mishra**
+- 🌐 Portfolio: [anubhavmishra.dev](https://anubhavmishra.dev)
+- 💼 LinkedIn: [linkedin.com/in/anubhavick](https://www.linkedin.com/in/anubhavick/)
+- 🐙 GitHub: [github.com/Anubhavick](https://github.com/Anubhavick)
+- 📧 Email: anubhav.mishra@example.com
+
+---
+
+## 🌟 Acknowledgments
+
+- OpenAI for the GPT API
+- Google Cloud for Speech-to-Text services
+- TinyMCE for the rich text editor
+- Vercel for hosting and deployment
+- MongoDB Atlas for database services
+
+---
+
+> **"Your thoughts are worth remembering. Make them count with Second Brain Journal."**
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Anubhavick/second-brain-journal)
+
 

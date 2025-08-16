@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const SUMMARIZE_URL = 'http://localhost:7001/api/summarize/summarize';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:7001';
+const SUMMARIZE_URL = `${API_BASE_URL}/api/summarize/summarize`;
 
 export const summarizeJournal = async (content) => {
   // Summarize a journal entry
