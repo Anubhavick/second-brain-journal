@@ -2,11 +2,6 @@
 
 A modern, full-stack journaling application that helps you write, reflect, and grow. Powered by OpenAI and voice input, Second Brain Journal lets you **capture thoughts**, **summarize entries with AI**, and **track your mood and progress** over time. Built with the MERN stack, Vite, and beautiful UI components, this project is designed for productivity, insight, and personal growth.
 
-## 🚀 Live Demo
-
-- **Frontend (Vercel):** [https://your-app-name.vercel.app](https://your-app-name.vercel.app)
-- **Backend API:** [https://your-backend-api.vercel.app](https://your-backend-api.vercel.app)
-
 ---
 
 <p align="center">
@@ -16,7 +11,6 @@ A modern, full-stack journaling application that helps you write, reflect, and g
   <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" />
   <img src="https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white" />
   <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" />
-  <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" />
 </p>
 
 ---
@@ -28,17 +22,16 @@ A modern, full-stack journaling application that helps you write, reflect, and g
 - 🎙️ **Advanced Voice Processing** with Google Cloud Speech-to-Text API
 - 🧠 **AI-Powered Summarization** using OpenAI GPT
 - 📊 **Mood Tracking & Analytics** with interactive charts
-- � **Smart Search & Filtering** by tags, date, mood, and content
+- 🔍 **Smart Search & Filtering** by tags, date, mood, and content
 - 📱 **Responsive Design** optimized for desktop and mobile
 - ⚡ **Fast Performance** with Vite bundler and optimized React
-- 🌐 **Production Ready** with Vercel deployment configuration
 
 ---
 
 ## 🏗️ Architecture
 
 ```
-[React Frontend (Vite)] <-> [Express.js API] <-> [MongoDB Atlas]
+[React Frontend (Vite)] <-> [Express.js API] <-> [MongoDB]
          |                        |
     [TinyMCE Editor]         [OpenAI API]
     [Speech Recognition]     [Google Cloud Speech]
@@ -64,11 +57,6 @@ A modern, full-stack journaling application that helps you write, reflect, and g
 - **Google Cloud Speech-to-Text** for accurate voice transcription
 - **Multer** for file upload handling
 - **CORS** for cross-origin requests
-
-### DevOps & Deployment
-- **Vercel** for both frontend and serverless backend deployment
-- **Environment-based configuration** for development/production
-- **Git-based deployment** with automatic builds
 
 ---
 
@@ -96,21 +84,6 @@ npm run dev
 
 Open [http://localhost:5173](http://localhost:5173) to view the app.
 
-### Production Deployment
-
-This project is configured for easy deployment on Vercel:
-
-1. **Deploy Frontend**: 
-   - Push to GitHub and connect to Vercel
-   - Set environment variables in Vercel dashboard
-   - Deploy automatically with every push
-
-2. **Deploy Backend**: 
-   - Deploy server separately or use Vercel Functions
-   - Update `VITE_API_URL` in frontend environment variables
-
-See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed instructions.
-
 ---
 
 ## 📁 Project Structure
@@ -134,7 +107,6 @@ This project demonstrates:
 - **Full-Stack Development**: MERN stack with modern tools
 - **API Integration**: OpenAI and Google Cloud services
 - **Responsive Design**: Mobile-first approach with Tailwind CSS
-- **Production Ready**: Proper deployment configuration
 - **Clean Code**: Well-structured, documented codebase
 - **Modern Practices**: React hooks, async/await, ES6+
 
@@ -154,18 +126,6 @@ This project demonstrates:
 - External API integration (OpenAI, Google Cloud)
 - File upload handling with Multer
 - Proper error handling and middleware
-
-#### DevOps & Deployment
-- Environment-based configuration
-- Vercel deployment setup
-- Git workflow and version control
-- Documentation and code organization
-
----
-
-## � Demo & Screenshots
-
-<!-- Add screenshots or GIF demos here -->
 
 ---
 
@@ -187,7 +147,7 @@ GOOGLE_APPLICATION_CREDENTIALS=./path/to/service-account.json
 
 ---
 
-## � API Documentation
+## 🔧 API Documentation
 
 ### Journal Endpoints
 - `GET /api/journals/all` - Fetch all journal entries
@@ -202,7 +162,7 @@ GOOGLE_APPLICATION_CREDENTIALS=./path/to/service-account.json
 
 ---
 
-## �️ Development Commands
+## 🛠️ Development Commands
 
 ### Frontend Commands
 ```bash
@@ -248,22 +208,20 @@ npm test           # Run tests
 
 ### Common Issues
 
-**Build fails on Vercel:**
-- Check that all environment variables are set
-- Ensure Node.js version compatibility
-- Verify all dependencies are in package.json
-
 **API calls failing:**
 - Check CORS configuration
 - Verify API URLs in environment variables
-- Ensure backend is deployed and accessible
+- Ensure backend server is running
 
 **Database connection issues:**
-- Verify MongoDB Atlas connection string
+- Verify MongoDB connection string
 - Check network access and IP whitelist
 - Ensure database user has proper permissions
 
-For more help, see [DEPLOYMENT.md](./DEPLOYMENT.md) or create an issue.
+**Voice recognition not working:**
+- Ensure you're using HTTPS or localhost
+- Check browser permissions for microphone access
+- Verify browser compatibility (Chrome/Edge recommended)
 
 ---
 
@@ -273,13 +231,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## �‍💻 Author
+## 👨‍💻 Author
 
 **Anubhav Mishra**
-- 🌐 Portfolio: [anubhavmishra.dev](https://anubhavmishra.dev)
 - 💼 LinkedIn: [linkedin.com/in/anubhavick](https://www.linkedin.com/in/anubhavick/)
 - 🐙 GitHub: [github.com/Anubhavick](https://github.com/Anubhavick)
-- 📧 Email: anubhav.mishra@example.com
 
 ---
 
@@ -288,13 +244,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - OpenAI for the GPT API
 - Google Cloud for Speech-to-Text services
 - TinyMCE for the rich text editor
-- Vercel for hosting and deployment
-- MongoDB Atlas for database services
+- MongoDB for database services
 
 ---
 
 > **"Your thoughts are worth remembering. Make them count with Second Brain Journal."**
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Anubhavick/second-brain-journal)
-
-
